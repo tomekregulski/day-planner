@@ -1,6 +1,6 @@
 var dayDis = $("#currentDay");
 var timeArray = [$('#time0').text(), $('#time1').text(), $('#time2').text(), $('#time3').text(), $('#time4').text(), $('#time5').text(), $('#time6').text(), $('#time7').text(), $('#time8').text()];
-var now = moment();
+var now = moment().hour();
 handleTimeDisplay();
 hourTracker();
 loadTasks();
@@ -10,10 +10,19 @@ function handleTimeDisplay() {
     dayDis.text(day);
 };  
 
+function loadTasks() {
+    for (var i = 0; i < timeArray.length; i++) {
+    var task = JSON.parse(localStorage.getItem(`task${i}`));
+    $(`#task${i}`).val(task);
+    }
+};
+
 function hourTracker() {
     for (var i = 0; i < timeArray.length; i++) {
         var parsed = (moment(timeArray[i], 'H a'));
-        var nowH = moment();
+        var nowH = moment(now, 'H a');
+        console.log(parsed);
+        console.log(nowH);
         if (nowH.isSame(parsed)) {
             $(`#task${i}`).css("background-color", "steelblue");
         } else if (nowH.isAfter(parsed)) {
@@ -22,13 +31,6 @@ function hourTracker() {
             (nowH.isBefore(parsed))
             $(`#task${i}`).css("background-color", "lightgreen");
         } 
-    }
-};
-
-function loadTasks() {
-    for (var i = 0; i < timeArray.length; i++) {
-    var task = JSON.parse(localStorage.getItem(`task${i}`));
-    $(`#task${i}`).val(task);
     }
 };
 
