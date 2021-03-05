@@ -2,20 +2,25 @@
 
 * [Description ](#description)
 * [What I Learned](#what-i-learned)
-* [Installation and Usage](#installation-and-usa)
+* [Installation and Usage](#installation-and-use)
 * [License](#license)
 
+![homepage main](assets/images/demo.png)
 
 # Description
 
-Coming Soon
+This is a simple, single-day planning app. Upon loading, the current date and hour is displayed. If the current hour falls within business hours, its corresponding time block will be highlighted in blue in the main section. Timeblocks turn grey as they fall into the past, and hours that have not yet passed are highlighted green. 
+
+When the user clicks the text box of any hour, a cursor appears, and a task may be entered. The corresponding "save" button will save the text to localStorage, and it will load upon any refresh/reload until changed. 
 
 This page has been deployed on Github, and can be viewed here:  https://tomekregulski.github.io/day-planner/
 
 
 # What I Learned
 
-Coming Soon
+This exercise helped solidify my understanding of working with localStorage, as well as how ussing loops and template literals can work together to keep code consolidated and efficient. 
+
+This assignment also forced me to work through several considerations when using moment.js to ensure that I achieve the desired functionality. 
 
 # Installation and Use
 
