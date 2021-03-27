@@ -21,8 +21,6 @@ function hourTracker() {
     for (var i = 0; i < timeArray.length; i++) {
         var parsed = (moment(timeArray[i], 'H a'));
         var nowH = moment(now, 'H a');
-        console.log(parsed);
-        console.log(nowH);
         if (nowH.isSame(parsed)) {
             $(`#task${i}`).css("background-color", "steelblue");
         } else if (nowH.isAfter(parsed)) {
